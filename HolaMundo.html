@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase</title>
+</head>
+<body>
+	<h1 id="holamundo"></h1>
+
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCPx8vnWANlSKgkRpASv_PY-Qt_egvvKj0",
+	    authDomain: "lfr-hola-mundo.firebaseapp.com",
+	    databaseURL: "https://lfr-hola-mundo.firebaseio.com",
+	    projectId: "lfr-hola-mundo",
+	    storageBucket: "",
+	    messagingSenderId: "1093394415802"
+	  };
+	  firebase.initializeApp(config);
+	  var holamundo = document.getElementById('holamundo');
+	  var dbRef= firebase.database().ref().child('text');
+	  dbRef.on('value',snap=> holamundo.innerText = snap.val());
+	</script>
+
+</body>
+</html>
